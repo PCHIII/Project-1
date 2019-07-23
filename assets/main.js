@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 var movieURL = "";
@@ -33,3 +34,15 @@ $("#search").on("click", function(e) {
 
 
 });
+=======
+$(document).ready(function() {
+                
+    
+    
+    
+    $('#modalhome').modal('show');
+    
+    
+    
+    });
+>>>>>>> c8417f9e689a1330c2933a03f7eed50a7cc9d677
