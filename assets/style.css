@@ -10,8 +10,20 @@
 
 .bodycls {
 	background: black;
-
 	
+}
+
+b {
+	font-size: 48px;
+	font-family: 'Archivo Black', sans-serif;
+	/* letter-spacing: .1em; */
+
+}
+
+p {
+	letter-spacing: .1em;
+	line-height: 200%;
+	font-size: 18px;
 }
 
 .imgpartone img, .imgparttwo img{
@@ -20,16 +32,9 @@
 	max-height: 260px; 
 	border-bottom: 3px solid white;
 	border-top: 3px solid white; 
-	/* padding-right:0;
-    padding-left:0;
-    margin-right:auto;
-    margin-left:auto */
+	
 } 
 
-/* .imgpartone img{
-	
-	border-top: 4px 
-} */
 
 .modelastbd {
 	max-height: 450px;
@@ -55,16 +60,6 @@
 
 }
 
-/* .container-fluid {
-    padding-right:0;
-    padding-left:0;
-    margin-right:auto;
-    margin-left:auto
- } */
-
- /* .buttonpartone  {
-	font-size: inherit;
-  }   */
   
 .material-icons {
 
