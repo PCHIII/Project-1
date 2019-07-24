@@ -25,7 +25,7 @@ b {
 	font-size: 10px;
 }
 
-p {
+p, h4, .modal-body{
 	letter-spacing: .1em;
 	line-height: 200%;
 	font-size: 18px;
