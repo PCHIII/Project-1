@@ -20,6 +20,11 @@ b {
 
 }
 
+.version {
+	font-family: monospace;
+	font-size: 10px;
+}
+
 p {
 	letter-spacing: .1em;
 	line-height: 200%;
