@@ -8,6 +8,9 @@ $(document).ready(function() {
     $(".submitBtn").on("click", function() {
 
         var titleSearchTerm = $("#inputTitle").val().trim();
+
+
+        
         var charSearchTerm = $("#inputChar").val().trim()
         
 
@@ -49,7 +52,19 @@ $(document).ready(function() {
    for(i=0;i<res.items.length;i++) {
        var bookDiv = $("<div>")
 
-       var bookPoster = $("<img src="+res.items[i].volumeInfo.imageLinks.thumbnail+">");
+       
+        var poster = res.items[i].volumeInfo.imageLinks.thumbnail;
+       //console.log(poster);
+         //if (res.items[i].volumeInfo.imageLinks.thumbnail ===undefined) {
+           // var bookPoster = $("<img>");
+         //}
+
+        // else {
+              
+             //console.log("EXISTS!!!!")
+        // }
+
+       var bookPoster = $("<img src="+poster+">");
        var bookTitle = $("<p>Title: "+res.items[i].volumeInfo.title+"</p>");
        var bookAuthor = $("<p>Author: "+res.items[i].volumeInfo.authors[0]+"</p>");
        var bookDate = $("<p>Date Published: "+res.items[i].volumeInfo.publishedDate+"</p>");
