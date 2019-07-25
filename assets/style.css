@@ -1,26 +1,54 @@
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  
+} */
+
+
 .bodycls {
-	background: #1B1E23;
+	background: black;
+	
+}
+
+b {
+	font-size: 48px;
+	font-family: 'Archivo Black', sans-serif;
+	
+
+}
+
+.version {
+	font-family: monospace;
+	font-size: 10px;
+}
+
+p, h4, .modal-body{
+	letter-spacing: .1em;
+	line-height: 200%;
+	font-size: 18px;
 }
 
 .imgpartone img, .imgparttwo img{
+	
 	width:100%;
- max-height: 260px; 
- border-bottom: 3px solid white;
- border-top: 3px solid white;
+	max-height: 260px; 
+	border-bottom: 3px solid white;
+	border-top: 3px solid white; 
+	
 } 
 
-/* .imgpartone img{
-	
-	border-top: 4px 
-} */
 
 .modelastbd {
-	max-height: 350px;
-	min-height: 350px;
+	max-height: 500px;
+	min-height: 500px;
 	width: 100%;
-	border: 2px solid;
-	overflow:scroll;
+	/* border: .5px dotted lightgrey; */
+	overflow:auto;
 	padding:10px;
+	/* background-color: lightgray; */
 }
 
 .buttonpart {
@@ -38,9 +66,6 @@
 
 }
 
-/* .buttonpartone  {
-	font-size: inherit;
-  }  */
   
 .material-icons {
 
