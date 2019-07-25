@@ -42,12 +42,13 @@ p, h4, .modal-body{
 
 
 .modelastbd {
-	max-height: 450px;
-	min-height: 450px;
+	max-height: 500px;
+	min-height: 500px;
 	width: 100%;
-	border: 2px solid;
+	/* border: .5px dotted lightgrey; */
 	overflow:auto;
 	padding:10px;
+	/* background-color: lightgray; */
 }
 
 .buttonpart {
