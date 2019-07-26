@@ -6,7 +6,11 @@
   position: relative;
   
 } */
-
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
 .bodycls {
 	background: black;
@@ -64,6 +68,16 @@ p, h4, .modal-body{
 	font-style: italic;
 	color:lightgray;
 
+}
+
+.bookpic {
+	padding: 20px;
+	width: 200px;
+	height: 300px;
+}
+
+#title {
+	padding-top: 20px;
 }
 
   
