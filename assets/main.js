@@ -64,14 +64,14 @@ $(document).ready(function() {
              //console.log("EXISTS!!!!")
         // }
 
-       var bookPoster = $("<img src="+poster+">");
-       var bookTitle = $("<p>Title: "+res.items[i].volumeInfo.title+"</p>");
+       var bookPoster = $("<img class='bookpic' src="+poster+">");
+       var bookTitle = $("<p id='title'>Title: "+res.items[i].volumeInfo.title+"</p>");
        var bookAuthor = $("<p>Author: "+res.items[i].volumeInfo.authors[0]+"</p>");
        var bookDate = $("<p>Date Published: "+res.items[i].volumeInfo.publishedDate+"</p>");
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
-      summaryDiv.css({"float":"right"});
+     summaryDiv.css({"float":"right"});
 
        bookDiv.append(bookPoster, summaryDiv);
         
