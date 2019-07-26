@@ -8,10 +8,7 @@ $(document).ready(function() {
     $(".submitBtn").on("click", function() {
 
         var titleSearchTerm = $("#inputTitle").val().trim();
-
-
-        
-        var charSearchTerm = $("#inputChar").val().trim()
+        var charSearchTerm = $("#inputChar").val().trim();
         
 
         console.log(titleSearchTerm);
@@ -50,24 +47,38 @@ $(document).ready(function() {
        console.log(res);
 
    for(i=0;i<res.items.length;i++) {
+       var book = res.items[i];
        var bookDiv = $("<div>")
 
-       
-        var poster = res.items[i].volumeInfo.imageLinks.thumbnail;
-       //console.log(poster);
-         //if (res.items[i].volumeInfo.imageLinks.thumbnail ===undefined) {
-           // var bookPoster = $("<img>");
-         //}
+        //Put any field that references "volumenInfo" in this conditional
+        if (book.volumeInfo) {
+            var poster = "";
+            if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) {
+                poster = book.volumeInfo.imageLinks.thumbnail;
+            }
+            
+            var author = "No author found :(";
+            if ( book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ) {
+                author = book.volumeInfo.authors[0];
+            }
 
-        // else {
-              
-             //console.log("EXISTS!!!!")
-        // }
+            var title = "Title not found :(";
+            if (book.volumeInfo.title) {
+                title = book.volumeInfo.title;
+            }
 
-       var bookPoster = $("<img src="+poster+">");
-       var bookTitle = $("<p>Title: "+res.items[i].volumeInfo.title+"</p>");
-       var bookAuthor = $("<p>Author: "+res.items[i].volumeInfo.authors[0]+"</p>");
-       var bookDate = $("<p>Date Published: "+res.items[i].volumeInfo.publishedDate+"</p>");
+            var date = "Publish date not found :(";
+            if (book.volumeInfo.publishedDate) {
+                date = book.volumeInfo.publishedDate;
+            }
+        }
+
+       var bookPoster = $("<img>");
+       bookPoster.attr("src", poster);
+       bookPoster.attr("alt", "thumbnail unavailable");
+       var bookTitle = $("<p>Title: "+title+"</p>");
+       var bookAuthor = $("<p>Author: "+author+"</p>");
+       var bookDate = $("<p>Date Published: "+date+"</p>");
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
