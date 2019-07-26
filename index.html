@@ -1,24 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 1</title>
+	<head>
+		<meta charset="utf-8" />			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Libre-Mitio</title> 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="assets/main.js"></script>
-</head>
-<body>
-    <form>
-        <label for="search">Search Movies and Book APIs</label>
-        <input type="text"> 
-        <input type="submit" id="search">
-    </form>
+		<link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-    <div class="container">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="assets/main.js"></script>
+	<head>
+	<body class="bodycls">
+		<div class="container-fluid p-0 m-0">
+			<div class="row no-gutters">
+				<div class="col-md-12 col-lg-12 imgpartone">
+					<img src="assets/images/children-reading.jpg" alt="Books">  
+				</div>
+			</div>
+			<div class="row no-gutters">
+				<div class="col-md-12 col-lg-12">
+					<div class="row buttonpart no-gutters">
+						<div class="col-sm-12 col-md-6 col-lg-6 buttonpartone">
+							<p>
+								<a title="Search by Book"  data-toggle="modal" data-target="#modalpopup" href="javascript:void(0)" alt="Search by Book"><i class="material-icons"style="font-size:100px;color:white;">book</i>
+								</a>
+							</p>
+							<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalpopup">
+								Search by Book
+							</button>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6 buttonparttwo">
+							<p>
+								<a title="Search by Movie"  data-toggle="modal" data-target="#modalpopup" href="javascript:void(0)" alt="Search by Movie"><i class="material-icons" style="font-size:100px;color:white;">movie_filter</i>
+								</a>
+							</p>
+							<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalpopup">
+								Search by Movie
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row no-gutters">
+				<div class="col-md-12 col-lg-12 imgparttwo fixed-bottom">
+					<img src="assets/images/cinema-kids.jpg" alt="Films"> 
+				</div> 
+			</div> 
+		</div>
+		
+		<div class="modal fade" id="modalhome" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!-- Modal Body -->
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12 col-lg-12">
+								<h2 class="modal-title pt-4"><span>Welcome to <b>Libre-Motio</b></span>&trade;</h2>
+								<hr>
+								<p>The <strong>Libre-Motio</strong>&trade; app allows you to search for Movies or Books, by Title or Character to find if it has a corresponding Adaptation.</p> 
+								<p>When a Movie is based off of a Book it is called a Literary Adaptation.  Inversely, a book can be based off of a Movie or Movie Screen-play, which is called an Adaptation of Film. </p>
+								 
+								<p>With this simple tool, you can expand your awareness and access to content on the Books and Movies that interest you most.</p>
+								<p>After closing this tab, please make your selection to begin your search!!!</p>
+							</div> 
+						</div>  
+					</div>  
+					
+					<!-- Modal Footer -->
+					<div class="modal-footer d-flex justify-content-between">
+						<p class="version text-muted mb-n5"> Version 1.0</p>
+						<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Popup One Start -->
+		<form name="popup" action="#" method="POST">
+			<!-- Modal Book-->
+			<div class="modal fade" id="modalpopup" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header" style="display:block !important;">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel"><strong>Search</strong></h4> 
+						</div>
+						
+						<!-- Modal Body -->
+						<div class="modal-body"> 
+							<label for="inputTitle"><strong>by Title:</strong></label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="inputTitle" placeholder="ex: The Jungle Book"/>
+							</div>
+							<br>
+							<label for="inputChar">Or</label>
+						</br>
+						<br>
+							<label for="inputChar"><strong>by Character:</strong></label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="inputChar" placeholder="ex: James Bond"/>
+							</div>
+						</div>
+						
+						<!-- Modal Footer -->
+						<div class="modal-footer">
+							<!-- <div class="btn-group"> -->
+							<button type="reset" class="btn btn-secondary mr-1" >Reset</button>
+							<button type="button" class="btn btn-primary submitBtn"   data-toggle="modal" data-target="#modalpost">SUBMIT</button>
+							<!-- </div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- Popup One End -->
+		
+		<!-- Popup After Button Start -->
+		<form name="popup3" action="#" method="POST">
+			<!-- Modal Movie-->
+			<div class="modal fade" id="modalpost" role="dialog">
+				<div class="modal-dialog modal-lg calllast">
+					<div class="modal-content">
+						<!-- Modal Body -->
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12 col-lg-12">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-6 pt-3">
+											<h4><strong>Books</strong></h4>
+											<hr>
+											<div id="bookapi" class="modelastbd">
+											</div>
+										</div> 
+										<div class="col-sm-12 col-md-6 col-lg-6 pt-3">
+											<h4><strong>Movies</strong></h4>
+											<hr> 
+											<div id="filmapi" class="modelastbd">
+											</div>
+										</div> 
+									</div> 
+								</div> 
+							</div>  
+						</div>  
+						
+						<!-- Modal Footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">E X I T</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 
-
-    </div>
-</body>
+	</body>
 </html>
