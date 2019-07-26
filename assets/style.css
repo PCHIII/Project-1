@@ -1,21 +1,80 @@
 
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-  position: relative;
-  
-} */
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+
+
 .bodycls {
-	background: black;
+	background: black; 
 	
 }
+
+.material-icons:hover {
+	-webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* image fade-out on hover */
+img { opacity: 1.0;
+	 transition: opacity 1s ease-in-out;
+	  -moz-transition: opacity 1s ease-in-out;
+	   -webkit-transition: opacity 1s ease-in-out;
+	 } 
+
+img:hover { opacity: 0.6;
+	 transition: opacity .55s ease-in-out;
+	  -moz-transition: opacity .55s ease-in-out;
+	   -webkit-transition: opacity .55s ease-in-out;
+	
+	}​
+/**
+ * ----------------------------------------
+ * animation rotate-in-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes rotate-in-center {
+	0% {
+	  -webkit-transform: rotate(-360deg);
+			  transform: rotate(-360deg);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: rotate(0);
+			  transform: rotate(0);
+	  opacity: 1;
+	}
+  }
+  @keyframes rotate-in-center {
+	0% {
+	  -webkit-transform: rotate(-360deg);
+			  transform: rotate(-360deg);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: rotate(0);
+			  transform: rotate(0);
+	  opacity: 1;
+	}
+  }
+  
+  /* search by book, search by button animation */
+  .pagebtn:hover{ 
+	animation: pulse 1s infinite;
+	animation-timing-function: linear;   
+  }
+  
+  @keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.1);
+	100% { transform: scale(1); }
+	}
+  } 
+  
+	
 
 b {
 	font-size: 48px;
@@ -39,8 +98,8 @@ p, h4, .modal-body{
 	
 	width:100%;
 	max-height: 260px; 
-	border-bottom: 2px solid white; 
-	border-top: 2px solid white;  
+	border-bottom: 3px solid white; 
+	border-top: 3px solid white;  
 	
 } 
 
@@ -90,4 +149,17 @@ p, h4, .modal-body{
 {
 	.calllast{max-width:100%;}
 	.buttonparttwo{margin-top: 20px;} 
+}
+
+@media (max-width: 480px){
+    .imgpartone, .imgparttwo { 
+        display : none; 
+        visibility : hidden; 
+	}
+	.pagebtn {
+		margin-bottom: 60px;
+	}
+	.buttonpartone{
+		margin-top: 100px;
+	}
 }
