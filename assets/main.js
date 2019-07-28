@@ -1,12 +1,6 @@
 
 $(document).ready(function() {
 
-  // $('.pagebtn').on('mouseover', function(){
-  //   $(this).parent().addClass('is-hover');
-  // }).on('mouseout', function(){
-  //   $(this).parent().removeClass('is-hover');
-  // })
-
 
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
@@ -71,7 +65,6 @@ $(document).ready(function() {
          var book = res.items[i];
          var bookDiv = $("<div>")
 
-<<<<<<< HEAD
         //Put any field that references "volumenInfo" in this conditional
         if (book.volumeInfo) {
             var poster = "";
@@ -101,24 +94,6 @@ $(document).ready(function() {
        var bookTitle = $("<p>Title: "+title+"</p>");
        var bookAuthor = $("<p>Author: "+author+"</p>");
        var bookDate = $("<p>Date Published: "+date+"</p>");
-=======
-       
-        var poster = res.items[i].volumeInfo.imageLinks.thumbnail;
-       //console.log(poster);
-         //if (res.items[i].volumeInfo.imageLinks.thumbnail ===undefined) {
-           // var bookPoster = $("<img>");
-         //}
-
-        // else {
-              
-             //console.log("EXISTS!!!!")
-        // }
-
-       var bookPoster = $("<img class='bookpic' src="+poster+">");
-       var bookTitle = $("<p id='title'>Title: "+res.items[i].volumeInfo.title+"</p>");
-       var bookAuthor = $("<p>Author: "+res.items[i].volumeInfo.authors[0]+"</p>");
-       var bookDate = $("<p>Date Published: "+res.items[i].volumeInfo.publishedDate+"</p>");
->>>>>>> c797a74e09a201e67129c93063e44e29694b7bbb
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
