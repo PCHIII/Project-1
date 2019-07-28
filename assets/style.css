@@ -37,7 +37,7 @@ img:hover { opacity: 0.6;
  * ----------------------------------------
  */
 
- /*
+ 
  @-webkit-keyframes rotate-in-center {
 	0% {
 	  -webkit-transform: rotate(-360deg);
@@ -61,7 +61,7 @@ img:hover { opacity: 0.6;
 			  transform: rotate(0);
 	  opacity: 1;
 	}
-  }*/
+  }
   
   /* search by book, search by button animation */
   .pagebtn:hover{ 
@@ -69,13 +69,13 @@ img:hover { opacity: 0.6;
 	animation-timing-function: linear;   
   }
  
-  /*
+  
   @keyframes pulse {
 	0% { transform: scale(1); }
 	50% { transform: scale(1.1);
 	100% { transform: scale(1); }
 	}
-  } */
+  } 
   
 	
 
