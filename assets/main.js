@@ -40,7 +40,8 @@ $(document).ready(function() {
 
         var movieDiv = $("<div>");
 
-        var moviePoster = $("<img src="+movie.Poster+">").css({"margin-bottom":"10px"});
+        var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
+
         var movieTitle = $("<h4>"+movie.Title+"</h4>");
         var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
         var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
@@ -88,18 +89,26 @@ $(document).ready(function() {
             }
         }
 
+        //<a href='"+book.volumeInfo.infoLink+"'></a>
+
        var bookPoster = $("<img>");
        bookPoster.attr("src", poster);
        bookPoster.attr("alt", "thumbnail unavailable");
+       
+       var bookLink = $("<a>");
+       bookLink.attr("href", book.volumeInfo.infoLink);
+       bookLink.attr("target", "_blank");
+       bookLink.append(bookPoster);
+       
        var bookTitle = $("<p>Title: "+title+"</p>");
        var bookAuthor = $("<p>Author: "+author+"</p>");
        var bookDate = $("<p>Date Published: "+date+"</p>");
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
-     summaryDiv.css({"float":"right"});
+       summaryDiv.css({"float":"right"});
 
-       bookDiv.append(bookPoster, summaryDiv);
+       bookDiv.append(bookLink, summaryDiv);
         
        
        bookDiv.css({"margin-bottom":"10px"});
@@ -109,6 +118,10 @@ $(document).ready(function() {
            movieDivisEmpty = false;
            bookDivisEmpty = false;
         }
+
+    else {
+
+    }
 
        
         if (charSearchTerm) {
@@ -154,7 +167,8 @@ $(document).ready(function() {
          
                  var movieDiv = $("<div>");
          
-                 var moviePoster = $("<img src="+movie.Poster+">").css({"margin-bottom":"10px"});
+                 var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
+
                  var movieTitle = $("<h4>"+movie.Title+"</h4>");
                  var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
                  var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
@@ -205,9 +219,16 @@ $(document).ready(function() {
                         }
                     }
             
+                    //<a href='"+book.volumeInfo.infoLink+"'></a>
                    var bookPoster = $("<img>");
                    bookPoster.attr("src", poster);
                    bookPoster.attr("alt", "thumbnail unavailable");
+                   
+                   var bookLink = $("<a>");
+                   bookLink.attr("href", book.volumeInfo.infoLink);
+                   bookLink.attr("target", "_blank");
+                   bookLink.append(bookPoster);
+                   
                    var bookTitle = $("<p>Title: "+title+"</p>");
                    var bookAuthor = $("<p>Author: "+author+"</p>");
                    var bookDate = $("<p>Date Published: "+date+"</p>");
@@ -216,7 +237,7 @@ $(document).ready(function() {
              
                   summaryDiv.css({"float":"right"});
             
-                   bookDiv.append(bookPoster, summaryDiv);
+                   bookDiv.append(bookLink, summaryDiv);
                     
                    
                    bookDiv.css({"margin-bottom":"10px"});
@@ -228,6 +249,10 @@ $(document).ready(function() {
         
             movieDivisEmpty = false;
             bookDivisEmpty = false;
+        }
+
+        else {
+            
         }
 
     });
