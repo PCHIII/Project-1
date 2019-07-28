@@ -5,10 +5,13 @@ $(document).ready(function() {
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
 
+    var invalidInput = $(".warningText");
+
     //$("#")          
     $('#modalhome').modal('show');
-    
-    $(".submitBtn").on("click", function() {
+
+
+    $(".submitBtn").on("click", function(e) {
 
     if ((movieDivisEmpty && bookDivisEmpty) == false)
     {
@@ -19,12 +22,17 @@ $(document).ready(function() {
         bookDivisEmpty = true;
 
     }
+
         var titleSearchTerm = $("#inputTitle").val().trim();
         var charSearchTerm = $("#inputChar").val().trim();
-        
 
-    if (titleSearchTerm) {
+        $("#inputChar").val("");
+        $("#inputTitle").val("");
+           
 
+     if (titleSearchTerm) {
+
+        invalidInput.html("");
         var movieURL = "https://www.omdbapi.com/?t="+titleSearchTerm+"&apikey=trilogy";
         var bookURL = "https://www.googleapis.com/books/v1/volumes?q="+titleSearchTerm;
 
@@ -119,13 +127,11 @@ $(document).ready(function() {
            bookDivisEmpty = false;
         }
 
-    else {
 
-    }
 
-       
-        if (charSearchTerm) {
+          else if (charSearchTerm) {
             
+            invalidInput.html("");
             var charURL = "https://openlibrary.org/search.json?q="+charSearchTerm;
             var bookResults = [];
 
@@ -175,8 +181,10 @@ $(document).ready(function() {
                  var movieDirector = $("<p>Director: "+movie.Director+"</p>");
                  var plot = $("<p>Plot: "+movie.Plot+"</p>");
          
-                 movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
-                 $("#filmapi").append(movieDiv);
+                 if (movie.Title != undefined){
+                    movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
+                    $("#filmapi").append(movieDiv);
+                }
          
                 });
             }
@@ -251,8 +259,10 @@ $(document).ready(function() {
             bookDivisEmpty = false;
         }
 
-        else {
-
+        else if ((charSearchTerm && titleSearchTerm) === "") {
+            e.stopPropagation();
+            console.log("Checks inputs");
+            invalidInput.html("Please enter valid input");
         }
 
     });
