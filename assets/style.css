@@ -29,12 +29,12 @@ img:hover { opacity: 0.6;
 	  -moz-transition: opacity .55s ease-in-out;
 	   -webkit-transition: opacity .55s ease-in-out;
 	
-	}​
-/**
+	}​ 
+/* 
  * ----------------------------------------
  * animation rotate-in-center
  * ----------------------------------------
- */
+  */
  
  @-webkit-keyframes rotate-in-center {
 	0% {
@@ -132,6 +132,14 @@ p, h4, .modal-body{
 	padding: 20px;
 	width: 200px;
 	height: 300px;
+}
+
+.booktext {
+	padding-top: 30px;
+	font-size: 20px;
+	line-height: normal;
+	font-weight: bold;
+
 }
 
 #title {
