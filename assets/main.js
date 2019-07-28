@@ -91,7 +91,7 @@ $(document).ready(function() {
 
         //<a href='"+book.volumeInfo.infoLink+"'></a>
 
-       var bookPoster = $("<img>");
+       var bookPoster = $("<img class='bookpic'>");
        bookPoster.attr("src", poster);
        bookPoster.attr("alt", "thumbnail unavailable");
        
@@ -100,7 +100,7 @@ $(document).ready(function() {
        bookLink.attr("target", "_blank");
        bookLink.append(bookPoster);
        
-       var bookTitle = $("<p>Title: "+title+"</p>");
+       var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
        var bookAuthor = $("<p>Author: "+author+"</p>");
        var bookDate = $("<p>Date Published: "+date+"</p>");
 
@@ -219,8 +219,8 @@ $(document).ready(function() {
                         }
                     }
             
-                    //<a href='"+book.volumeInfo.infoLink+"'></a>
-                   var bookPoster = $("<img>");
+                    
+                   var bookPoster = $("<img class='bookpic'>");
                    bookPoster.attr("src", poster);
                    bookPoster.attr("alt", "thumbnail unavailable");
                    
@@ -229,7 +229,7 @@ $(document).ready(function() {
                    bookLink.attr("target", "_blank");
                    bookLink.append(bookPoster);
                    
-                   var bookTitle = $("<p>Title: "+title+"</p>");
+                   var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
                    var bookAuthor = $("<p>Author: "+author+"</p>");
                    var bookDate = $("<p>Date Published: "+date+"</p>");
             
@@ -252,7 +252,7 @@ $(document).ready(function() {
         }
 
         else {
-            
+
         }
 
     });
