@@ -10,7 +10,6 @@
 
 .bodycls {
 	background: black; 
-	
 }
 
 .material-icons:hover {
@@ -36,7 +35,6 @@ img:hover { opacity: 0.6;
  * animation rotate-in-center
  * ----------------------------------------
  */
-
  
  @-webkit-keyframes rotate-in-center {
 	0% {
@@ -72,12 +70,10 @@ img:hover { opacity: 0.6;
   
   @keyframes pulse {
 	0% { transform: scale(1); }
-	50% { transform: scale(1.1);
+	50% { transform: scale(1.1); }
 	100% { transform: scale(1); }
-	}
   } 
   
-	
 
 b {
 	font-size: 48px;
