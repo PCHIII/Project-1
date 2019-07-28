@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
 
+  
 
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
