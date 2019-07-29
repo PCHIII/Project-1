@@ -1,7 +1,6 @@
 
 $(document).ready(function() {
 
-
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
 
@@ -59,7 +58,7 @@ $(document).ready(function() {
         method: "GET"
         }).then(function(res) {
          
-       console.log(res);
+       console.log("RES!", res);
 
         for(i=0;i<res.items.length;i++) {
          var book = res.items[i];
@@ -88,10 +87,10 @@ $(document).ready(function() {
             }
         }
 
-       var bookPoster = $("<img>");
+       var bookPoster = $("<img class='bookpic'>");
        bookPoster.attr("src", poster);
        bookPoster.attr("alt", "thumbnail unavailable");
-       var bookTitle = $("<p>Title: "+title+"</p>");
+       var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
        var bookAuthor = $("<p>Author: "+author+"</p>");
        var bookDate = $("<p>Date Published: "+date+"</p>");
 
@@ -105,17 +104,18 @@ $(document).ready(function() {
        bookDiv.css({"margin-bottom":"10px"});
        $("#bookapi").append(bookDiv);
     }
-    });
-           movieDivisEmpty = false;
-           bookDivisEmpty = false;
-        }
 
-       
+    });
+      movieDivisEmpty = false;
+      bookDivisEmpty = false;
+    }
+
+       console.log("if char search term");
         if (charSearchTerm) {
             
             var charURL = "https://openlibrary.org/search.json?q="+charSearchTerm;
             var bookResults = [];
-
+            console.log("ajax for characters")
             $.ajax({
                 url: charURL,
                 method: "GET"
@@ -137,9 +137,10 @@ $(document).ready(function() {
                 if ($.inArray(e, books) == -1) books.push(e);
             });
 
-            console.log(books);
+            console.log("books", books);
 
              //Traverse books array and return movies from OMBD api
+             console.log("entering for loop for movies")
              for (i=0;i<books.length;i++) {
                 
                 var movieURL = "https://www.omdbapi.com/?t="+books[i]+"&apikey=trilogy";
@@ -168,6 +169,7 @@ $(document).ready(function() {
             }
 
             //Traverse books array and returns books from google api
+            console.log("entering for loop for books api calls")
               for (i=0;i<books.length;i++) {
                 var bookURL = "https://www.googleapis.com/books/v1/volumes?q="+books[i];
 
@@ -176,7 +178,7 @@ $(document).ready(function() {
                     method: "GET"
                     }).then(function(res) {
                      
-                   console.log(res);
+                   console.log("RESPONSE!", res);
             
                     for(i=0;i<res.items.length;i++) {
                      var book = res.items[i];
@@ -206,15 +208,16 @@ $(document).ready(function() {
                     }
             
                    var bookPoster = $("<img class='bookpic'>");
+                  
                    bookPoster.attr("src", poster);
                    bookPoster.attr("alt", "thumbnail unavailable");
                    var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-                   var bookAuthor = $("<p class='booktext2'>Author: "+author+"</p>");
-                   var bookDate = $("<p class='booktext2'>Date Published: "+date+"</p>");
+                   var bookAuthor = $("<p>Author: "+author+"</p>");
+                   var bookDate = $("<p>Date Published: "+date+"</p>");
             
                    var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
              
-                  summaryDiv.css({"float":"right"});
+                summaryDiv.css({"float":"right"});
             
                    bookDiv.append(bookPoster, summaryDiv);
                     
