@@ -209,8 +209,8 @@ $(document).ready(function() {
                    bookPoster.attr("src", poster);
                    bookPoster.attr("alt", "thumbnail unavailable");
                    var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-                   var bookAuthor = $("<p>Author: "+author+"</p>");
-                   var bookDate = $("<p>Date Published: "+date+"</p>");
+                   var bookAuthor = $("<p class='booktext2'>Author: "+author+"</p>");
+                   var bookDate = $("<p class='booktext2'>Date Published: "+date+"</p>");
             
                    var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
              
