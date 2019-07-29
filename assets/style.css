@@ -149,11 +149,13 @@ p, h4, .modal-body{
 }
 
 .warningText {
-    padding-top: 10px;
+    /* padding-top: 10px; */
 	font-weight: bold; 
 	padding-bottom: 0px;
-	margin-bottom: 0px;
+	margin-bottom: 0px; 
 	font-size: 14px;
+	padding-right: 70px;
+	padding-left:0px;
 } 
 
 .warningText {
