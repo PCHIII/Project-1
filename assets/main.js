@@ -4,8 +4,6 @@ $(document).ready(function() {
     var bookDivisEmpty = true;
     var invalidInput = $(".warningText");
 
-    var invalidInput = $(".warningText");
-
     //$("#")          
     $('#modalhome').modal('show');
 
