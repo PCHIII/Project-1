@@ -9,6 +9,15 @@ $(document).ready(function() {
     $('#modalhome').modal('show');
 
 
+    $(".pagebtn").on("click", function() {
+       invalidInput.html("");
+    });
+
+    $(".material-icons").on("click", function() {
+       invalidInput.html("");
+    });
+
+    
     $("#inputTitle").on("keyup", function(event) {
          if (event.keyCode === 13) {
             event.preventDefault();
