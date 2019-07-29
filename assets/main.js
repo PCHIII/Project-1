@@ -1,13 +1,16 @@
-
 $(document).ready(function() {
+
 
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
 
+    var invalidInput = $(".warningText");
+
     //$("#")          
     $('#modalhome').modal('show');
-    
-    $(".submitBtn").on("click", function() {
+
+
+    $(".submitBtn").on("click", function(e) {
 
     if ((movieDivisEmpty && bookDivisEmpty) == false)
     {
@@ -18,12 +21,17 @@ $(document).ready(function() {
         bookDivisEmpty = true;
 
     }
+
         var titleSearchTerm = $("#inputTitle").val().trim();
         var charSearchTerm = $("#inputChar").val().trim();
-        
 
-    if (titleSearchTerm) {
+        $("#inputChar").val("");
+        $("#inputTitle").val("");
+           
 
+     if (titleSearchTerm) {
+
+        invalidInput.html("");
         var movieURL = "https://www.omdbapi.com/?t="+titleSearchTerm+"&apikey=trilogy";
         var bookURL = "https://www.googleapis.com/books/v1/volumes?q="+titleSearchTerm;
 
@@ -39,12 +47,13 @@ $(document).ready(function() {
 
         var movieDiv = $("<div>");
 
-        var moviePoster = $("<img src="+movie.Poster+">").css({"margin-bottom":"10px"});
-        var movieTitle = $("<h4>"+movie.Title+"</h4>");
-        var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
-        var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
-        var movieDirector = $("<p>Director: "+movie.Director+"</p>");
-        var plot = $("<p>Plot: "+movie.Plot+"</p>");
+        var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
+
+        var movieTitle = $("<h5>"+movie.Title+"</h5>");
+        var movieYear = $("<p class='authortext'>Released Date: "+movie.Year+"</p>");
+        var movieRating = $("<p class='authortext'>Rating: "+movie.Rated+"</p>");
+        var movieDirector = $("<p class='authortext'>Director: "+movie.Director+"</p>");
+        var plot = $("<p class='authortext'>Plot: "+movie.Plot+"</p>");
 
         movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
         $("#filmapi").append(movieDiv);
@@ -58,7 +67,7 @@ $(document).ready(function() {
         method: "GET"
         }).then(function(res) {
          
-       console.log("RES!", res);
+       console.log(res);
 
         for(i=0;i<res.items.length;i++) {
          var book = res.items[i];
@@ -87,35 +96,44 @@ $(document).ready(function() {
             }
         }
 
+        //<a href='"+book.volumeInfo.infoLink+"'></a>
+
        var bookPoster = $("<img class='bookpic'>");
        bookPoster.attr("src", poster);
        bookPoster.attr("alt", "thumbnail unavailable");
+       
+       var bookLink = $("<a>");
+       bookLink.attr("href", book.volumeInfo.infoLink);
+       bookLink.attr("target", "_blank");
+       bookLink.append(bookPoster);
+       
        var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-       var bookAuthor = $("<p>Author: "+author+"</p>");
-       var bookDate = $("<p>Date Published: "+date+"</p>");
+       var bookAuthor = $("<p class='authortext'>Author: "+author+"</p>");
+       var bookDate = $("<p class='datetext'>Date Published: "+date+"</p>");
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
-     summaryDiv.css({"float":"right"});
+       summaryDiv.css({"float":"right"});
 
-       bookDiv.append(bookPoster, summaryDiv);
+       bookDiv.append(bookLink, summaryDiv);
         
        
        bookDiv.css({"margin-bottom":"10px"});
        $("#bookapi").append(bookDiv);
     }
-
     });
-      movieDivisEmpty = false;
-      bookDivisEmpty = false;
-    }
+           movieDivisEmpty = false;
+           bookDivisEmpty = false;
+        }
 
-       console.log("if char search term");
-        if (charSearchTerm) {
+
+
+          else if (charSearchTerm) {
             
+            invalidInput.html("");
             var charURL = "https://openlibrary.org/search.json?q="+charSearchTerm;
             var bookResults = [];
-            console.log("ajax for characters")
+
             $.ajax({
                 url: charURL,
                 method: "GET"
@@ -137,10 +155,9 @@ $(document).ready(function() {
                 if ($.inArray(e, books) == -1) books.push(e);
             });
 
-            console.log("books", books);
+            console.log(books);
 
              //Traverse books array and return movies from OMBD api
-             console.log("entering for loop for movies")
              for (i=0;i<books.length;i++) {
                 
                 var movieURL = "https://www.omdbapi.com/?t="+books[i]+"&apikey=trilogy";
@@ -155,21 +172,23 @@ $(document).ready(function() {
          
                  var movieDiv = $("<div>");
          
-                 var moviePoster = $("<img src="+movie.Poster+">").css({"margin-bottom":"10px"});
-                 var movieTitle = $("<h4>"+movie.Title+"</h4>");
-                 var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
-                 var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
-                 var movieDirector = $("<p>Director: "+movie.Director+"</p>");
-                 var plot = $("<p>Plot: "+movie.Plot+"</p>");
+                 var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
+
+                 var movieTitle = $("<h5>"+movie.Title+"</h5>");
+                 var movieYear = $("<p class='authortext'>Released Date: "+movie.Year+"</p>");
+                 var movieRating = $("<p class='authortext'>Rating: "+movie.Rated+"</p>");
+                 var movieDirector = $("<p class='authortext'>Director: "+movie.Director+"</p>");
+                 var plot = $("<p class='authortext'>Plot: "+movie.Plot+"</p>");
          
-                 movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
-                 $("#filmapi").append(movieDiv);
+                 if (movie.Title != undefined){
+                    movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
+                    $("#filmapi").append(movieDiv);
+                }
          
                 });
             }
 
             //Traverse books array and returns books from google api
-            console.log("entering for loop for books api calls")
               for (i=0;i<books.length;i++) {
                 var bookURL = "https://www.googleapis.com/books/v1/volumes?q="+books[i];
 
@@ -178,7 +197,7 @@ $(document).ready(function() {
                     method: "GET"
                     }).then(function(res) {
                      
-                   console.log("RESPONSE!", res);
+                   console.log(res);
             
                     for(i=0;i<res.items.length;i++) {
                      var book = res.items[i];
@@ -207,19 +226,25 @@ $(document).ready(function() {
                         }
                     }
             
+                    
                    var bookPoster = $("<img class='bookpic'>");
-                  
                    bookPoster.attr("src", poster);
                    bookPoster.attr("alt", "thumbnail unavailable");
+                   
+                   var bookLink = $("<a>");
+                   bookLink.attr("href", book.volumeInfo.infoLink);
+                   bookLink.attr("target", "_blank");
+                   bookLink.append(bookPoster);
+                   
                    var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-                   var bookAuthor = $("<p>Author: "+author+"</p>");
-                   var bookDate = $("<p>Date Published: "+date+"</p>");
+                   var bookAuthor = $("<p class='authortext'>Author: "+author+"</p>");
+                   var bookDate = $("<p class='datetext'>Date Published: "+date+"</p>");
             
                    var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
              
-                summaryDiv.css({"float":"right"});
+                  summaryDiv.css({"float":"right"});
             
-                   bookDiv.append(bookPoster, summaryDiv);
+                   bookDiv.append(bookLink, summaryDiv);
                     
                    
                    bookDiv.css({"margin-bottom":"10px"});
@@ -233,7 +258,12 @@ $(document).ready(function() {
             bookDivisEmpty = false;
         }
 
+        else if ((charSearchTerm && titleSearchTerm) === "") {
+            e.stopPropagation();
+            console.log("Checks inputs");
+            invalidInput.html("Please enter valid input");
+        }
+
     });
 
 });
-
