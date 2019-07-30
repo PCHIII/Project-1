@@ -1,26 +1,47 @@
 $(document).ready(function() {
 
-
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
-
     var invalidInput = $(".warningText");
 
     //$("#")          
     $('#modalhome').modal('show');
 
 
-    $(".submitBtn").on("click", function(e) {
+    $(".pagebtn").on("click", function() {
+       invalidInput.html("");
+    });
+
+    $(".material-icons").on("click", function() {
+       invalidInput.html("");
+    });
+
+    
+    $("#inputTitle").on("keyup", function(event) {
+         if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".submitBtn").click();
+         }
+    });
+
+    $("#inputChar").on("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".submitBtn").click();
+        }
+    });
+    
+   $(".submitBtn").on("click", function(e) {
 
     if ((movieDivisEmpty && bookDivisEmpty) == false)
-    {
+     {
         $("#filmapi").empty();
         $("#bookapi").empty();
 
         movieDivisEmpty = true;
         bookDivisEmpty = true;
 
-    }
+     }
 
         var titleSearchTerm = $("#inputTitle").val().trim();
         var charSearchTerm = $("#inputChar").val().trim();
