@@ -1,27 +1,47 @@
-
 $(document).ready(function() {
-
 
     var movieDivisEmpty = true;
     var bookDivisEmpty = true;
-
     var invalidInput = $(".warningText");
 
     //$("#")          
     $('#modalhome').modal('show');
 
 
-    $(".submitBtn").on("click", function(e) {
+    $(".pagebtn").on("click", function() {
+       invalidInput.html("");
+    });
+
+    $(".material-icons").on("click", function() {
+       invalidInput.html("");
+    });
+
+    
+    $("#inputTitle").on("keyup", function(event) {
+         if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".submitBtn").click();
+         }
+    });
+
+    $("#inputChar").on("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".submitBtn").click();
+        }
+    });
+    
+   $(".submitBtn").on("click", function(e) {
 
     if ((movieDivisEmpty && bookDivisEmpty) == false)
-    {
+     {
         $("#filmapi").empty();
         $("#bookapi").empty();
 
         movieDivisEmpty = true;
         bookDivisEmpty = true;
 
-    }
+     }
 
         var titleSearchTerm = $("#inputTitle").val().trim();
         var charSearchTerm = $("#inputChar").val().trim();
@@ -50,11 +70,11 @@ $(document).ready(function() {
 
         var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
 
-        var movieTitle = $("<h4>"+movie.Title+"</h4>");
-        var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
-        var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
-        var movieDirector = $("<p>Director: "+movie.Director+"</p>");
-        var plot = $("<p>Plot: "+movie.Plot+"</p>");
+        var movieTitle = $("<h5>"+movie.Title+"</h5>");
+        var movieYear = $("<p class='authortext'>Released Date: "+movie.Year+"</p>");
+        var movieRating = $("<p class='authortext'>Rating: "+movie.Rated+"</p>");
+        var movieDirector = $("<p class='authortext'>Director: "+movie.Director+"</p>");
+        var plot = $("<p class='authortext'>Plot: "+movie.Plot+"</p>");
 
         movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
         $("#filmapi").append(movieDiv);
@@ -109,8 +129,8 @@ $(document).ready(function() {
        bookLink.append(bookPoster);
        
        var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-       var bookAuthor = $("<p>Author: "+author+"</p>");
-       var bookDate = $("<p>Date Published: "+date+"</p>");
+       var bookAuthor = $("<p class='authortext'>Author: "+author+"</p>");
+       var bookDate = $("<p class='datetext'>Date Published: "+date+"</p>");
 
        var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
  
@@ -175,11 +195,11 @@ $(document).ready(function() {
          
                  var moviePoster = $("<a href='"+res.Website+"' target='_blank'><img src="+movie.Poster+"></a>").css({"margin-bottom":"10px"});
 
-                 var movieTitle = $("<h4>"+movie.Title+"</h4>");
-                 var movieYear = $("<p>Released Date: "+movie.Year+"</p>");
-                 var movieRating = $("<p>Rating: "+movie.Rated+"</p>");
-                 var movieDirector = $("<p>Director: "+movie.Director+"</p>");
-                 var plot = $("<p>Plot: "+movie.Plot+"</p>");
+                 var movieTitle = $("<h5>"+movie.Title+"</h5>");
+                 var movieYear = $("<p class='authortext'>Released Date: "+movie.Year+"</p>");
+                 var movieRating = $("<p class='authortext'>Rating: "+movie.Rated+"</p>");
+                 var movieDirector = $("<p class='authortext'>Director: "+movie.Director+"</p>");
+                 var plot = $("<p class='authortext'>Plot: "+movie.Plot+"</p>");
          
                  if (movie.Title != undefined){
                     movieDiv.append(moviePoster, movieTitle, movieYear, movieRating, movieDirector, plot);
@@ -238,8 +258,8 @@ $(document).ready(function() {
                    bookLink.append(bookPoster);
                    
                    var bookTitle = $("<p class='booktext'>Title: "+title+"</p>");
-                   var bookAuthor = $("<p>Author: "+author+"</p>");
-                   var bookDate = $("<p>Date Published: "+date+"</p>");
+                   var bookAuthor = $("<p class='authortext'>Author: "+author+"</p>");
+                   var bookDate = $("<p class='datetext'>Date Published: "+date+"</p>");
             
                    var summaryDiv = $("<div>").append(bookTitle, bookAuthor, bookDate);
              
@@ -268,4 +288,3 @@ $(document).ready(function() {
     });
 
 });
-
