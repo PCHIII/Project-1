@@ -44,4 +44,13 @@ The App searches both OMDB and Google Books API simultaneously using the AJAX te
 * Javascript
 * OMDB API
 * GOOGLE API
+<<<<<<< HEAD
 * AJAX
+=======
+
+
+
+
+
+
+>>>>>>> c4427a5dc41a5b5996a1b4bda885954a35f2d7fc
