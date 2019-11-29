@@ -1,7 +1,10 @@
 # Project-1
 
 
-## TheLibre-Motio App allows you to search for Movies and Books by Title or Character, looking for cross adaptations.  This app was developed to answer the question, was this Movie originally based off a book? or vice versa.
+The Libre-Motio App allows you to search for Movies and Books by Title or Character, looking for cross adaptations.  This app was developed to answer the question, was this Movie originally based off a book? or vice versa.
+
+The App searches both OMDB and Google Books API simultaneously using the AJAX technique.
+
 
 
 
@@ -41,9 +44,13 @@
 * Javascript
 * OMDB API
 * GOOGLE API
+<<<<<<< HEAD
+* AJAX
+=======
 
 
 
 
 
 
+>>>>>>> c4427a5dc41a5b5996a1b4bda885954a35f2d7fc
